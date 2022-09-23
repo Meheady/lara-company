@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\MultiImage;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -40,8 +41,9 @@ class AboutController extends Controller
     {
         return view('admin.about-section.multi-image');
     }
-    public function saveMultiImage()
+    public function saveMultiImage(Request $request)
     {
-        return view('admin.about-section.multi-image');
+        MultiImage::saveMultiImage($request);
+        return redirect()->back()->with('massage','Save successful');
     }
 }
