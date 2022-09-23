@@ -9,40 +9,40 @@
             <div class="col-md-10 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="text-center">Add About Section</h4>
+                        <h4 class="text-center">Edit About Section</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('save.about.section') }}" method="post" enctype="multipart/form-data" >
+                        <form action="{{ route('update.about.section',['id'=>$data->id]) }}" method="post" enctype="multipart/form-data" >
                             @csrf
                             <div class="row form-group mb-2">
                                 <label for="" class="col-md-2 col-form-label">Title</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="title" class="form-control">
+                                    <input type="text" name="title" value="{{ $data->title }}" class="form-control">
                                 </div>
                             </div>
                             <div class="row form-group mb-2">
                                 <label for="" class="col-md-2 col-form-label">Short Title</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="short_title" class="form-control">
+                                    <input type="text" name="short_title" value="{{ $data->short_title }}" class="form-control">
                                 </div>
                             </div>
                             <div class="row form-group mb-2">
                                 <label for="" class="col-md-2 col-form-label">Short Description</label>
                                 <div class="col-md-9">
-                                    <textarea name="short_desc" id="" class="form-control" cols="30" rows="4"></textarea>
+                                    <textarea name="short_desc" id="" class="form-control" cols="30" rows="4">{{ $data->short_desc }}</textarea>
                                 </div>
                             </div>
                             <div class="row form-group mb-2">
                                 <label for="" class="col-md-2 col-form-label">Long Description</label>
                                 <div class="col-md-9">
-                                    <textarea id="elm1" name="long_desc"></textarea>
+                                    <textarea id="elm1" name="long_desc">{{ $data->long_desc }}</textarea>
                                 </div>
                             </div>
                             <div class="row form-group mb-2">
                                 <label for="" class="col-md-2 col-form-label">About Image</label>
                                 <div class="col-md-9">
                                     <input type="file" id="image" accept="image/png,  image/gif, image/jpeg" name="about_image" class="form-control-file">
-                                    <img id="showImage" src=""  width="100px" height="100px" alt="">
+                                    <img id="showImage" src="{{ asset($data->about_image) }}"  width="100px" height="100px" alt="">
                                 </div>
                             </div>
                             <div class="row form-group">

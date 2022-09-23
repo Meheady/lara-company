@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/',[HomeController::class,'ShowHeroSection']);
+Route::get('/about',[HomeController::class,'showAboutPage'])->name('about');
 
 
 //admin all route
@@ -44,11 +45,15 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/admin/edit-hero-section/{id}',[HomeSliderController::class,'editHeroSection'])->name('edit.hero.section');
     Route::post('/admin/update-hero-section/{id}',[HomeSliderController::class,'updateHeroSection'])->name('update.hero.section');
     // all route about section
-    Route::get('/admin/add-about-section',[AboutController::class,'addAboutSection'])->name('add.about.section');
-    Route::post('/admin/save-about-section',[AboutController::class,'saveAboutSection'])->name('save.about.section');
-    Route::get('/admin/manage-about-section',[AboutController::class,'manageAboutSection'])->name('manage.about.section');
-    Route::get('/admin/edit-about-section/{id}',[AboutController::class,'editAboutSection'])->name('edit.about.section');
-    Route::post('/admin/update-about-section/{id}',[AboutController::class,'updateAboutSection'])->name('update.about.section');
+    Route::controller(AboutController::class)->group(function (){
+        Route::get('/admin/add-about-section','addAboutSection')->name('add.about.section');
+        Route::post('/admin/save-about-section','saveAboutSection')->name('save.about.section');
+        Route::get('/admin/manage-about-section','manageAboutSection')->name('manage.about.section');
+        Route::get('/admin/edit-about-section/{id}','editAboutSection')->name('edit.about.section');
+        Route::post('/admin/update-about-section/{id}','updateAboutSection')->name('update.about.section');
+        Route::post('/admin/about-multi-image','aboutMultiImage')->name('about.multi.image');
+
+    });
 });
 
 

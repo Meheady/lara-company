@@ -32,6 +32,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('add.about.section') }}">Add About Section</a></li>
                         <li><a href="{{ route('manage.about.section') }}">Manage About Section</a></li>
+                        <li><a href="{{ route('about.multi.image') }}">About Multi Image</a></li>
                     </ul>
                 </li>
 

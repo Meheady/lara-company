@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAboutsTable extends Migration
+class CreateMultiImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateAboutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('abouts', function (Blueprint $table) {
+        Schema::create('multi_images', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('short_title')->nullable();
-            $table->text('short_desc')->nullable();
-            $table->text('long_desc')->nullable();
-            $table->string('about_image')->nullable();
-
+            $table->string('multi_image')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateAboutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('multi_images');
     }
 }

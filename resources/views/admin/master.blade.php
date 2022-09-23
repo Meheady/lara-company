@@ -94,6 +94,13 @@
 <script src="{{asset('/admin')}}/assets/js/app.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+
+<!--tinymce js-->
+<script src="{{asset('/admin')}}/assets/libs/tinymce/tinymce.min.js"></script>
+
+<!-- init js -->
+<script src="{{asset('/admin')}}/assets/js/pages/form-editor.init.js"></script>
+
 @if(Session::has('massage'))
     <script>
         $(document).ready(function(){

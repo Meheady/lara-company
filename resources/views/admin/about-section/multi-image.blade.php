@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Add Hero Section
+    About multi image
 @endsection
 @section('admin')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -9,37 +9,13 @@
             <div class="col-md-10 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="text-center">Add About Section</h4>
+                        <h4 class="text-center">Multiimage About Section</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('save.about.section') }}" method="post" enctype="multipart/form-data" >
                             @csrf
                             <div class="row form-group mb-2">
-                                <label for="" class="col-md-2 col-form-label">Title</label>
-                                <div class="col-md-9">
-                                    <input type="text" name="title" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row form-group mb-2">
-                                <label for="" class="col-md-2 col-form-label">Short Title</label>
-                                <div class="col-md-9">
-                                    <input type="text" name="short_title" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row form-group mb-2">
-                                <label for="" class="col-md-2 col-form-label">Short Description</label>
-                                <div class="col-md-9">
-                                    <textarea name="short_desc" id="" class="form-control" cols="30" rows="4"></textarea>
-                                </div>
-                            </div>
-                            <div class="row form-group mb-2">
-                                <label for="" class="col-md-2 col-form-label">Long Description</label>
-                                <div class="col-md-9">
-                                    <textarea id="elm1" name="long_desc"></textarea>
-                                </div>
-                            </div>
-                            <div class="row form-group mb-2">
-                                <label for="" class="col-md-2 col-form-label">About Image</label>
+                                <label for="" class="col-md-2 col-form-label">Multi Image</label>
                                 <div class="col-md-9">
                                     <input type="file" id="image" accept="image/png,  image/gif, image/jpeg" name="about_image" class="form-control-file">
                                     <img id="showImage" src=""  width="100px" height="100px" alt="">
