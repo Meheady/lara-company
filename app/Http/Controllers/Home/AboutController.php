@@ -40,4 +40,8 @@ class AboutController extends Controller
     {
         return view('admin.about-section.multi-image');
     }
+    public function saveMultiImage()
+    {
+        return view('admin.about-section.multi-image');
+    }
 }

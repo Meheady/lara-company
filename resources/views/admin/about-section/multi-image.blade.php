@@ -12,12 +12,12 @@
                         <h4 class="text-center">Multiimage About Section</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('save.about.section') }}" method="post" enctype="multipart/form-data" >
+                        <form action="{{ route('save.multi.image') }}" method="post" enctype="multipart/form-data" >
                             @csrf
                             <div class="row form-group mb-2">
                                 <label for="" class="col-md-2 col-form-label">Multi Image</label>
                                 <div class="col-md-9">
-                                    <input type="file" id="image" accept="image/png,  image/gif, image/jpeg" name="about_image" class="form-control-file">
+                                    <input type="file" id="image" multiple accept="image/png,  image/gif, image/jpeg" name="multi_image[]" class="form-control-file">
                                     <img id="showImage" src=""  width="100px" height="100px" alt="">
                                 </div>
                             </div>

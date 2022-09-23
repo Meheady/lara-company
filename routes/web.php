@@ -51,7 +51,8 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::get('/admin/manage-about-section','manageAboutSection')->name('manage.about.section');
         Route::get('/admin/edit-about-section/{id}','editAboutSection')->name('edit.about.section');
         Route::post('/admin/update-about-section/{id}','updateAboutSection')->name('update.about.section');
-        Route::post('/admin/about-multi-image','aboutMultiImage')->name('about.multi.image');
+        Route::get('/admin/about-multi-image','aboutMultiImage')->name('about.multi.image');
+        Route::post('/admin/save-multi-image','saveMultiImage')->name('save.multi.image');
 
     });
 });
