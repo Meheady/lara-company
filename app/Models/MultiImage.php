@@ -39,4 +39,22 @@ class MultiImage extends Model
         }
 
     }
+
+    public static function updateMultiImage($request,$id)
+    {
+        self::$multiImage = $request->file('multi_image');
+        self::$newMultiImg = MultiImage::find($id);
+
+        unlink(self::$newMultiImg->multi_image);
+        self::$imgExt = self::$multiImage->getClientOriginalExtension();
+        self::$imgName = time().'.'.self::$imgExt;
+        self::$imgLocation = 'multi-image/';
+        self::$multiImage->move(self::$imgLocation,self::$imgName);
+        self::$imgUrl = self::$imgLocation.self::$imgName;
+
+        self::$newMultiImg->multi_image = self::$imgUrl;
+        self::$newMultiImg->save();
+
+
+    }
 }

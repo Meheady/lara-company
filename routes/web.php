@@ -53,6 +53,10 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::post('/admin/update-about-section/{id}','updateAboutSection')->name('update.about.section');
         Route::get('/admin/about-multi-image','aboutMultiImage')->name('about.multi.image');
         Route::post('/admin/save-multi-image','saveMultiImage')->name('save.multi.image');
+        Route::get('/admin/manage-multi-image','manageMultiImage')->name('manage.multi.image');
+        Route::get('/admin/edit-multi-image/{id}','editMultiImage')->name('edit.multi.image');
+        Route::post('/admin/update-multi-image/{id}','updateMultiImage')->name('update.multi.image');
+        Route::get('/admin/delete-multi-image/{id}','deleteMultiImage')->name('delete.multi.image');
 
     });
 });
