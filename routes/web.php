@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\website\HomeController;
+use App\Http\Controllers\Home\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,15 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::post('/admin/update-multi-image/{id}','updateMultiImage')->name('update.multi.image');
         Route::get('/admin/delete-multi-image/{id}','deleteMultiImage')->name('delete.multi.image');
 
+    });
+
+    Route::controller(PortfolioController::class)->group(function (){
+        Route::get('/admin/add-portfolio','addPortfolio')->name('add.portfolio');
+        Route::post('/admin/save-portfolio','savePortfolio')->name('save.portfolio');
+        Route::get('/admin/manage-portfolio','managePortfolio')->name('manage.portfolio');
+        Route::get('/admin/edit-portfolio/{id}','editPortfolio')->name('edit.portfolio');
+        Route::post('/admin/update-portfolio/{id}','updatePortfolio')->name('update.portfolio');
+        Route::get('/admin/delete-portfolio/{id}','deletePortfolio')->name('delete.portfolio');
     });
 });
 
