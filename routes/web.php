@@ -24,6 +24,7 @@ Route::get('/', function () {
 
 Route::get('/',[HomeController::class,'ShowHeroSection']);
 Route::get('/about',[HomeController::class,'showAboutPage'])->name('about');
+Route::get('/portfolio',[HomeController::class,'showPortfolioPage'])->name('portfolio');
 
 
 //admin all route
