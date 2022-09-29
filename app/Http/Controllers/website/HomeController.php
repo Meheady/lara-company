@@ -4,6 +4,7 @@ namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Blog;
 use App\Models\HomeSlider;
 use App\Models\MultiImage;
 use App\Models\Portfolio;
@@ -19,10 +20,10 @@ class HomeController extends Controller
         $this->multiImg = MultiImage::all();
         $this->portfolio = Portfolio::all();
 
-        return view('website.index',
-            ['heroSection'=>HomeSlider::find(1),
+        return view('website.index', ['heroSection'=>HomeSlider::find(1),
             'multiImg'=>$this->multiImg,
-                'portfolio'=>$this->portfolio
+                'portfolio'=>$this->portfolio,
+            'blogs'=>Blog::latest()->limit(3)->get()
             ]);
     }
 
@@ -36,5 +37,16 @@ class HomeController extends Controller
     {
         $this->portfolio = Portfolio::all();
         return view('website.portfolio-page.portfolio',['portfolioPage'=>$this->portfolio]);
+    }
+
+    public function showPortfolioDetails($id)
+    {$this->multiImg = MultiImage::all();
+        $this->portfolio = Portfolio::find($id);
+        return view('website.portfolio-page.portfolio-detail',['portfolioPage'=>$this->portfolio,'multiImg'=>$this->multiImg]);
+    }
+
+    public function showBlogDetails()
+    {
+        
     }
 }

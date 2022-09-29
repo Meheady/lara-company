@@ -6,6 +6,8 @@ use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\website\HomeController;
 use App\Http\Controllers\Home\PortfolioController;
+use App\Http\Controllers\Home\BlogCategoryController;
+use App\Http\Controllers\Home\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,8 @@ Route::get('/', function () {
 Route::get('/',[HomeController::class,'ShowHeroSection']);
 Route::get('/about',[HomeController::class,'showAboutPage'])->name('about');
 Route::get('/portfolio',[HomeController::class,'showPortfolioPage'])->name('portfolio');
+Route::get('/portfolio-details/{id}',[HomeController::class,'showPortfolioDetails'])->name('portfolio.details');
+Route::get('/blog/details',[HomeController::class,'showBlogDetails'])->name('blog.details');
 
 
 //admin all route
@@ -69,6 +73,23 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::get('/admin/edit-portfolio/{id}','editPortfolio')->name('edit.portfolio');
         Route::post('/admin/update-portfolio/{id}','updatePortfolio')->name('update.portfolio');
         Route::get('/admin/delete-portfolio/{id}','deletePortfolio')->name('delete.portfolio');
+    });
+    //  add category route
+    Route::controller(BlogCategoryController::class)->group(function (){
+        Route::get('/admin/add-category','addCategory')->name('add.category');
+        Route::post('/admin/save-category','saveCategory')->name('save.category');
+        Route::get('/admin/manage-category','manageCategory')->name('manage.category');
+        Route::get('/admin/edit-category/{id}','editCategory')->name('edit.category');
+        Route::post('/admin/update-category/{id}','updateCategory')->name('update.category');
+        Route::get('/admin/delete-category/{id}','deleteCategory')->name('delete.category');
+    });
+    Route::controller(BlogController::class)->group(function (){
+        Route::get('/admin/add-blog','addBlog')->name('add.blog');
+        Route::post('/admin/save-blog','saveBlog')->name('save.blog');
+        Route::get('/admin/edit-blog/{id}','editBlog')->name('edit.blog');
+        Route::post('/admin/update-blog/{id}','updateBlog')->name('update.blog');
+        Route::get('/admin/manage-blog','manageBlog')->name('manage.blog');
+        Route::get('/admin/delete-blog/{id}','deleteBlog')->name('delete.blog');
     });
 });
 

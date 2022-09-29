@@ -278,39 +278,39 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-xl-10 col-lg-12">
-                        <ul class="nav nav-tabs portfolio__nav" id="portfolioTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button"
-                                        role="tab" aria-controls="all" aria-selected="true">All</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="website-tab" data-bs-toggle="tab" data-bs-target="#website" type="button"
-                                        role="tab" aria-controls="website" aria-selected="false">website</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="apps-tab" data-bs-toggle="tab" data-bs-target="#apps" type="button" role="tab" aria-controls="apps" aria-selected="false">mobile apps</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button"
-                                        role="tab" aria-controls="dashboard" aria-selected="false">Dashboard</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="landing-tab" data-bs-toggle="tab" data-bs-target="#landing" type="button"
-                                        role="tab" aria-controls="landing" aria-selected="false">landing page</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="branding-tab" data-bs-toggle="tab" data-bs-target="#branding" type="button"
-                                        role="tab" aria-controls="branding" aria-selected="false">Branding</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="graphic-tab" data-bs-toggle="tab" data-bs-target="#graphic" type="button"
-                                        role="tab" aria-controls="graphic" aria-selected="false">Graphic Design</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+{{--                <div class="row justify-content-center">--}}
+{{--                    <div class="col-xl-10 col-lg-12">--}}
+{{--                        <ul class="nav nav-tabs portfolio__nav" id="portfolioTab" role="tablist">--}}
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button"--}}
+{{--                                        role="tab" aria-controls="all" aria-selected="true">All</button>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <button class="nav-link" id="website-tab" data-bs-toggle="tab" data-bs-target="#website" type="button"--}}
+{{--                                        role="tab" aria-controls="website" aria-selected="false">website</button>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <button class="nav-link" id="apps-tab" data-bs-toggle="tab" data-bs-target="#apps" type="button" role="tab" aria-controls="apps" aria-selected="false">mobile apps</button>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <button class="nav-link" id="dashboard-tab" data-bs-toggle="tab" data-bs-target="#dashboard" type="button"--}}
+{{--                                        role="tab" aria-controls="dashboard" aria-selected="false">Dashboard</button>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <button class="nav-link" id="landing-tab" data-bs-toggle="tab" data-bs-target="#landing" type="button"--}}
+{{--                                        role="tab" aria-controls="landing" aria-selected="false">landing page</button>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <button class="nav-link" id="branding-tab" data-bs-toggle="tab" data-bs-target="#branding" type="button"--}}
+{{--                                        role="tab" aria-controls="branding" aria-selected="false">Branding</button>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item" role="presentation">--}}
+{{--                                <button class="nav-link" id="graphic-tab" data-bs-toggle="tab" data-bs-target="#graphic" type="button"--}}
+{{--                                        role="tab" aria-controls="graphic" aria-selected="false">Graphic Design</button>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <div class="tab-content" id="portfolioTabContent">
                 <div class="tab-pane show active" id="all" role="tabpanel" aria-labelledby="all-tab">
@@ -321,12 +321,12 @@
                                     @foreach($portfolio as $item)
                                     <div class="portfolio__item">
                                         <div class="portfolio__thumb">
-                                            <img src="{{asset($item->portfolio_image)}}" alt="">
+                                            <img width="1020px" height="519px" src="{{asset($item->portfolio_image)}}" alt="">
                                         </div>
                                         <div class="portfolio__overlay__content">
                                             <span>{{$item->portfolio_title}}</span>
-                                            <h4 class="title"><a href="portfolio-details.html">{{$item->portfolio_name}}</a></h4>
-                                            <a href="portfolio-details.html" class="link">Case Study</a>
+                                            <h4 class="title"><a href="{{ route('portfolio.details',['id'=>$item->id]) }}">{{$item->portfolio_name}}</a></h4>
+                                            <a href="{{ route('portfolio.details',['id'=>$item->id]) }}" class="link">Case Study</a>
                                         </div>
                                     </div>
                                     @endforeach
@@ -336,6 +336,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
         <!-- portfolio-area-end -->
 
@@ -443,51 +444,23 @@
         <section class="blog">
             <div class="container">
                 <div class="row gx-0 justify-content-center">
+                    @foreach($blogs as $blog)
                     <div class="col-lg-4 col-md-6 col-sm-9">
                         <div class="blog__post__item">
                             <div class="blog__post__thumb">
-                                <a href="blog-details.html"><img src="{{asset('frontend/')}}/assets/img/blog/blog_post_thumb01.jpg" alt=""></a>
+                                <a href="{{ route('blog.details') }}"><img width="300px" height="300px" src="{{asset($blog->blog_image)}}" alt=""></a>
                                 <div class="blog__post__tags">
-                                    <a href="blog.html">Story</a>
+                                    <a href="blog.html">{{ $blog['category']['blog_category'] }}</a>
                                 </div>
                             </div>
                             <div class="blog__post__content">
-                                <span class="date">13 january 2021</span>
-                                <h3 class="title"><a href="blog-details.html">Facebook design is dedicated to what's new in design</a></h3>
-                                <a href="blog-details.html" class="read__more">Read mORe</a>
+                                <span class="date">{{ $blog->created_at->diffForHumans() }}</span>
+                                <h3 class="title"><a href="blog-details.html">{{ $blog->blog_title }}</a></h3>
+                                <a href="{{ route('blog.details') }}" class="read__more">Read more</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-9">
-                        <div class="blog__post__item">
-                            <div class="blog__post__thumb">
-                                <a href="blog-details.html"><img src="{{asset('frontend/')}}/assets/img/blog/blog_post_thumb02.jpg" alt=""></a>
-                                <div class="blog__post__tags">
-                                    <a href="blog.html">Social</a>
-                                </div>
-                            </div>
-                            <div class="blog__post__content">
-                                <span class="date">13 january 2021</span>
-                                <h3 class="title"><a href="blog-details.html">Make communication Fast and Effectively.</a></h3>
-                                <a href="blog-details.html" class="read__more">Read mORe</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-9">
-                        <div class="blog__post__item">
-                            <div class="blog__post__thumb">
-                                <a href="blog-details.html"><img src="{{asset('frontend/')}}/assets/img/blog/blog_post_thumb03.jpg" alt=""></a>
-                                <div class="blog__post__tags">
-                                    <a href="blog.html">Work</a>
-                                </div>
-                            </div>
-                            <div class="blog__post__content">
-                                <span class="date">13 january 2021</span>
-                                <h3 class="title"><a href="blog-details.html">How to increase your productivity at work - 2021</a></h3>
-                                <a href="blog-details.html" class="read__more">Read mORe</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="blog__button text-center">
                     <a href="blog.html" class="btn">more blog</a>

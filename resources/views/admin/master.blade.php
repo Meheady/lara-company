@@ -27,7 +27,14 @@
     <!-- App Css-->
     <link href="{{asset('/admin')}}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <style>
+        .bootstrap-tagsinput .tag {
+            margin-right: 2px;
+            color: #2d09ef;
+        }
+    </style>
 </head>
 
 <body data-topbar="dark">
@@ -100,6 +107,7 @@
 
 <!-- init js -->
 <script src="{{asset('/admin')}}/assets/js/pages/form-editor.init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" integrity="sha512-9UR1ynHntZdqHnwXKTaOm1s6V9fExqejKvg5XMawEMToW4sSw+3jtLrYfZPijvnwnnE8Uol1O9BcAskoxgec+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 @if(Session::has('massage'))
     <script>
