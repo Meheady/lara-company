@@ -448,7 +448,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-9">
                         <div class="blog__post__item">
                             <div class="blog__post__thumb">
-                                <a href="{{ route('blog.details') }}"><img width="300px" height="300px" src="{{asset($blog->blog_image)}}" alt=""></a>
+                                <a href="{{ route('blog.details',['id'=>$blog->id]) }}"><img width="300px" height="300px" src="{{asset($blog->blog_image)}}" alt=""></a>
                                 <div class="blog__post__tags">
                                     <a href="blog.html">{{ $blog['category']['blog_category'] }}</a>
                                 </div>
@@ -456,7 +456,7 @@
                             <div class="blog__post__content">
                                 <span class="date">{{ $blog->created_at->diffForHumans() }}</span>
                                 <h3 class="title"><a href="blog-details.html">{{ $blog->blog_title }}</a></h3>
-                                <a href="{{ route('blog.details') }}" class="read__more">Read more</a>
+                                <a href="{{ route('blog.details',['id'=>$blog->id]) }}" class="read__more">Read more</a>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\website;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\HomeSlider;
 use App\Models\MultiImage;
 use App\Models\Portfolio;
@@ -45,8 +46,11 @@ class HomeController extends Controller
         return view('website.portfolio-page.portfolio-detail',['portfolioPage'=>$this->portfolio,'multiImg'=>$this->multiImg]);
     }
 
-    public function showBlogDetails()
+    public function showBlogDetails($id)
     {
-        
+        $blog = Blog::find($id);
+        $blogs = Blog::latest()->limit(6)->get();
+        $categories = BlogCategory::latest()->get();
+        return view('website.blog.details',['blog'=>$blog,'blogs'=>$blogs,'categories'=>$categories]);
     }
 }
